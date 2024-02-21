@@ -62,7 +62,8 @@ class CayenneLPP {
         uint8_t addNFC(uint8_t channel, char * NFC);
         uint8_t addVEHICLE(uint8_t channel, char * VEH);
         uint8_t addInt(uint8_t channel, uint16_t  Value);
-        uint8_t addSismique(uint8_t channel, uint16_t  Value);
+         uint8_t addSismique(uint8_t channel, uint16_t  Value);
+        uint8_t addPression(uint8_t channel, float  Value);
     
     private:
         uint8_t *buffer;
