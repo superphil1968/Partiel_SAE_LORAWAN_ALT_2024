@@ -134,10 +134,27 @@ int index;
     return cursor;
 }
 
-uint8_t CayenneLPP::addSismique(uint8_t channel, uint16_t  Value)
+uint8_t CayenneLPP::addPression( uint8_t channel,float  value)
 {
 int index;
-    buffer[cursor++]=channel;
+ if ((cursor + LPP_ANALOG_INPUT_SIZE) > maxsize) {
+        return 0;
+    }
+
+    int16_t val = value;
+    buffer[cursor++] = channel;
+    buffer[cursor++] = LPP_ANALOG_INPUT;
+     buffer[cursor++]=val>>8;
+    buffer[cursor++] = val&0xFF;
+
+    return cursor;
+}
+
+uint8_t CayenneLPP::addSismique(uint8_t channel, uint16_t Value)
+{
+int index;
+
+    buffer[cursor++] = channel;
     buffer[cursor++]=Value>>8;
     buffer[cursor++] = Value&0xFF;
 
