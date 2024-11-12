@@ -225,14 +225,15 @@ static void send_message()
     // Payload is in Cayenne format*/
 
 
-//printf ("\r\n Temps=%d, table=%d, Pression=%d, Sismique=%d", Temps,Num_Table+1,PRESSION[Temps][Num_Table],SISMIQUE[Temps][Num_Table] );
+printf ("\r\n Temps=%d, table=%d, Pression=%d, Sismique=%d", Temps,Num_Table+1,PRESSION[Temps][Num_Table],SISMIQUE[Temps][Num_Table] );
 //printf ("\r\n Temps=%d, table=%d, Pression=%d, latitude=%f longitude=%f ", Temps,Num_Table,PRESSION[Temps][Num_Table],latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table] );
-   printf ("\r\n Temps=%d, table=%d, Pression=%f, latitude=%f longitude=%f ", Temps,Num_Table,PRESSION[Temps][Num_Table],latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table] );
+   //printf ("\r\n Temps=%d, table=%d, Pression=%f, latitude=%f longitude=%f ", Temps,Num_Table,PRESSION[Temps][Num_Table],latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table] );
     Payload.reset();
     size = Payload.addDigitalInput(1,(int8_t) Num_Table);
-    size =size+ Payload.addPression (2,PRESSION[Temps][Num_Table]);    // Add Temp in payload
+    //size =size+ Payload.addPression (2,PRESSION[Temps][Num_Table]);    // Add Temp in payload
+   size =size+ Payload.addSismique(4,SISMIQUE[Temps][Num_Table]);    // Add Temp in payload
     size =size+ Payload.addGPS(3,latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table],(float)45.2);
-   //size =size+ Payload.addSismique(4,SISMIQUE[Temps][Num_Table]);    // Add Temp in payload
+  
 
       if (Temps==2)
       Temps=0;
