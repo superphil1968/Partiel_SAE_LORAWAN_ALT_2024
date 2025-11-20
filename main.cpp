@@ -227,7 +227,7 @@ static void send_message()
 
 //printf ("\r\n Temps=%d, table=%d, Pression=%d, Sismique=%d", Temps,Num_Table+1,PRESSION[Temps][Num_Table],SISMIQUE[Temps][Num_Table] );
 //printf ("\r\n Temps=%d, table=%d, Pression=%d, latitude=%f longitude=%f ", Temps,Num_Table,PRESSION[Temps][Num_Table],latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table] );
-   printf ("\r\n Temps=%d, table=%d, Pression=%f, latitude=%f longitude=%f ", Temps,Num_Table,PRESSION[Temps][Num_Table],latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table] );
+   printf ("\r\n Temps=%d, table=%d, Pression=%d, latitude=%f longitude=%f ", Temps,Num_Table,PRESSION[Temps][Num_Table],latitude[Temps%2][Num_Table],longitude[Temps%2][Num_Table] );
     Payload.reset();
     size = Payload.addDigitalInput(1,(int8_t) Temps);
     size =size+ Payload.addPression (2,PRESSION[Temps][Num_Table]);    // Add Temp in payload
